@@ -115,10 +115,6 @@ class SygnalClimate(SygnalEntity, ClimateEntity):
     def fan_modes(self):
         return list(FAN_MODE_TO_SYGNAL.keys())
 
-    @property
-    def device_info(self):
-        return self.coordinator.api.device_info
-
     async def async_set_temperature(self, **kwargs: Any) -> None:
         await self.coordinator.api.async_set_temperature(kwargs[ATTR_TEMPERATURE])
 
